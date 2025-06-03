@@ -11,6 +11,8 @@ import java.util.Objects;
 public class Entity {
     GamePanel gamePanel;
 
+    public int time;
+
     public int x, y;
     public int speed;
 

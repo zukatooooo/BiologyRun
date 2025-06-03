@@ -1,8 +1,6 @@
 package main;
 
-import entity.Player;
-import entity.Projectile;
-import entity.Tuberculosis;
+import entity.*;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -32,7 +30,7 @@ public class GamePanel extends JPanel implements Runnable {
         FPS
      */
 
-    int fps = 60;
+    public final int fps = 60;
 
     public int level = 0;
 
@@ -55,7 +53,10 @@ public class GamePanel extends JPanel implements Runnable {
 
     public Player player = new Player(this, keyHandler);
     public Tuberculosis[] tuberculosis = new Tuberculosis[10];
+    public Cytomegalovirus[] cytomegalovirus = new Cytomegalovirus[10];
+    public Lactobacteria[] lactobacteria = new Lactobacteria[10];
     public ArrayList<Projectile> projectiles = new ArrayList<>();
+    public Rabies rabies = new Rabies(this);
 
     /*
         GAME STATES
@@ -117,10 +118,31 @@ public class GamePanel extends JPanel implements Runnable {
         if(gameState == playState) {
             music.play();
             player.update();
-            for(int i = 0; i < tuberculosis.length; i++) {
-                if(tuberculosis[i] != null) {
-                    tuberculosis[i].update();
+            if(level == 0) {
+                for (int i = 0; i < tuberculosis.length; i++) {
+                    if (tuberculosis[i] != null) {
+                        tuberculosis[i].update();
+                    }
                 }
+            }
+
+            else if(level == 1) {
+                for (int i = 0; i < cytomegalovirus.length; i++) {
+                    if (cytomegalovirus[i] != null) {
+                        cytomegalovirus[i].update();
+                    }
+                }
+            }
+
+            else if(level == 2) {
+                for (int i = 0; i < lactobacteria.length; i++) {
+                    if (lactobacteria[i] != null) {
+                        lactobacteria[i].update();
+                    }
+                }
+            }
+            else if(level == 3) {
+                rabies.update();
             }
             for(int i = 0; i < projectiles.size(); i++) {
                 if(projectiles.get(i) != null){
@@ -152,10 +174,29 @@ public class GamePanel extends JPanel implements Runnable {
 
             player.draw(g2d);
 
-            for(int i = 0; i < tuberculosis.length; i++) {
-                if(tuberculosis[i] != null) {
-                    tuberculosis[i].draw(g2d);
+            if(level == 0) {
+                for (int i = 0; i < tuberculosis.length; i++) {
+                    if (tuberculosis[i] != null) {
+                        tuberculosis[i].draw(g2d);
+                    }
                 }
+            }
+            else if(level == 1) {
+                for (int i = 0; i < cytomegalovirus.length; i++) {
+                    if (cytomegalovirus[i] != null) {
+                        cytomegalovirus[i].draw(g2d);
+                    }
+                }
+            }
+            else if(level == 2) {
+                for (int i = 0; i < lactobacteria.length; i++) {
+                    if (lactobacteria[i] != null) {
+                        lactobacteria[i].draw(g2d);
+                    }
+                }
+            }
+            else if(level == 3) {
+                rabies.draw(g2d);
             }
             for(int i = 0; i < projectiles.size(); i++) {
                 if(projectiles.get(i) != null) {

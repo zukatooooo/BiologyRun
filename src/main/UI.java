@@ -98,9 +98,14 @@ public class UI {
 
         g2d.setFont(g2d.getFont().deriveFont(Font.PLAIN, 26F));
 
-        for(String line : currentDialog.split("\n")) {
-            g2d.drawString(line, x, y);
-            y += gamePanel.scaledTileSize / 2;
+        if (currentDialog != null) {
+            for (String line : currentDialog.split("\n")) {
+                g2d.drawString(line, x, y);
+                y += gamePanel.scaledTileSize / 2;
+            }
+        }
+        else {
+            gamePanel.gameState = gamePanel.playState;
         }
     }
 

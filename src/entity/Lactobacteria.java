@@ -4,24 +4,24 @@ import main.GamePanel;
 
 import java.awt.*;
 
-public class Tuberculosis extends Entity{
-    public Tuberculosis(GamePanel gamePanel) {
+public class Lactobacteria extends Entity{
+    public Lactobacteria(GamePanel gamePanel) {
         super(gamePanel);
 
         direction = "left";
-        speed = 2;
-        maxHealth = 2;
+        speed = 4;
+        maxHealth = 100;
         health = maxHealth;
         attack = 1;
 
         collisionArea = new Rectangle(16, 16, 32, 32);
 
-        getTuberculosisImage();
+        getLactobacteriaImages();
     }
 
-    public void getTuberculosisImage() {
-        side1 = getImage("/tuberculosis/side1");
-        side2 = getImage("/tuberculosis/side2");
+    public void getLactobacteriaImages() {
+        side1 = getImage("/lactobacteria/lactobacteria1");
+        side2 = getImage("/lactobacteria/lactobacteria2");
     }
 
     public void update() {
@@ -49,8 +49,8 @@ public class Tuberculosis extends Entity{
             y = -gamePanel.scaledTileSize + (int)(Math.random() * ((-gamePanel.scaledTileSize * 3 + gamePanel.scaledTileSize) + 1));
             health = maxHealth;
         }
-        if(isFirst && gamePanel.tuberculosis[0].y > gamePanel.scaledTileSize) {
-            gamePanel.tuberculosis[0].isFirst = false;
+        if(isFirst && gamePanel.lactobacteria[0].y > gamePanel.scaledTileSize) {
+            gamePanel.lactobacteria[0].isFirst = false;
             gamePanel.player.speak();
         }
     }

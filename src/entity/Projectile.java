@@ -18,11 +18,9 @@ public class Projectile extends Entity {
     public void update() {
 
         if(user == gamePanel.player){
-            System.out.println("before hit");
             int tuberculosisIndex = gamePanel.collisionChecker.checkEntity(this, gamePanel.tuberculosis);
             if(tuberculosisIndex != -1) {
                 gamePanel.tuberculosis[tuberculosisIndex].health -= attack;
-                System.out.println("hit tuber");
             }
 
         }
