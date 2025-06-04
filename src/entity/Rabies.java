@@ -16,6 +16,8 @@ public class Rabies extends Entity{
         collisionArea = new Rectangle(0, 0, gamePanel.scaledTileSize * 3, gamePanel.scaledTileSize);
 
         getRabiesImage();
+
+        gamePanel.player.speak();
     }
 
     public void getRabiesImage() {

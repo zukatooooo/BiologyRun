@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BiologyRun:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="BiologyRun.jar">
+      <element id="module-output" name="BiologyRun" />
+    </root>
+  </artifact>
+</component>

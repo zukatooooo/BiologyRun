@@ -9,7 +9,7 @@ public class Lactobacteria extends Entity{
         super(gamePanel);
 
         direction = "left";
-        speed = 4;
+        speed = 2;
         maxHealth = 100;
         health = maxHealth;
         attack = 1;

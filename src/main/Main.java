@@ -24,13 +24,7 @@ public class Main {
 
         window.setVisible(true);
 
-        for(int i = 0; i <= 1000; i++) {
-            if(i == 1000) {
-                System.exit(0);
-            }
-        }
-
-//        gamePanel.setUpGame();
-//        gamePanel.startGameLoop();
+        gamePanel.setUpGame();
+        gamePanel.startGameLoop();
     }
 }

@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogState = 3;
-    public final int defeatState = 4;
+    public final int winState = 4;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -197,6 +197,9 @@ public class GamePanel extends JPanel implements Runnable {
             }
             else if(level == 3) {
                 rabies.draw(g2d);
+            }
+            else if(level == 4) {
+                gameState = winState;
             }
             for(int i = 0; i < projectiles.size(); i++) {
                 if(projectiles.get(i) != null) {

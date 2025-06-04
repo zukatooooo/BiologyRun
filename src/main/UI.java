@@ -44,6 +44,9 @@ public class UI {
         if(gamePanel.gameState == gamePanel.dialogState) {
             drawDialogScreen();
         }
+        if(gamePanel.gameState == gamePanel.winState) {
+            drawWinScreen();
+        }
     }
 
     public void drawPauseScreen() {
@@ -171,6 +174,22 @@ public class UI {
             g2d.drawString(">", x - (gamePanel.scaledTileSize / 2), y - 5);
         }
 
+        g2d.drawString(text, x, y);
+    }
+
+    public void drawWinScreen() {
+        g2d.setFont(g2d.getFont().deriveFont(Font.PLAIN, 60F));
+        String text = "გილოცავთ!";
+
+        int x = getXCenteredText(text);
+        int y = gamePanel.scaledTileSize * 4;
+
+        g2d.drawString(text, x, y);
+        g2d.setFont(g2d.getFont().deriveFont(Font.PLAIN, 40F));
+
+        text = "თქვენ მიკალით ყველა მიკრობი";
+        x = getXCenteredText(text);
+        y += gamePanel.scaledTileSize * 2;
         g2d.drawString(text, x, y);
     }
 }
